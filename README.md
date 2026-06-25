@@ -131,4 +131,4 @@ Data download instructions will be added after the data acquisition stage.
 
 **Jorai** — BSc Computer Science, University of Surrey  
 Researching population-aware genomic AI for clinical applications.  
-[GitHub](https://github.com/jorlyx)
+[GitHub](https://github.com/jorai-thomas)
