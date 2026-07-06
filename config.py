@@ -46,3 +46,13 @@ MAX_EPOCHS      = 50
 # ── Sequence parameters ───────────────────────────────────────────────────────
 SEQ_LENGTH      = 100         # Flanking sequence length (each side of variant)
 NUCLEOTIDES     = ["A", "C", "G", "T", "N"]
+
+# ── Device configuration ──────────────────────────────────────────────────────
+import torch
+
+if torch.cuda.is_available():
+    DEVICE = torch.device('cuda')        # Windows with NVIDIA GPU
+elif torch.backends.mps.is_available():
+    DEVICE = torch.device('mps')         # Apple Silicon Mac
+else:
+    DEVICE = torch.device('cpu')         # Fallback
