@@ -37,6 +37,7 @@ decisions in this repo. Update it when conventions change — don't let it drift
 - All random operations seeded with `RANDOM_SEED` from config
 - All plots saved to `FIGURES_DIR` before display
 - All model outputs serialised to JSON in `PREDICTIONS_DIR`
+- Always save best model state to `outputs/` at end of training — `torch.save(best_model_state, config.OUTPUTS_DIR / "model_name.pt")`
 
 ---
 
@@ -67,3 +68,4 @@ This repo is part of a dissertation arc:
 
 Anything observed here that is relevant to the Year 3 project should be logged
 to research-notes simultaneously.
+
