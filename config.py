@@ -46,6 +46,7 @@ MAX_EPOCHS      = 50
 # ── Sequence parameters ───────────────────────────────────────────────────────
 SEQ_LENGTH      = 100         # Flanking sequence length (each side of variant)
 NUCLEOTIDES     = ["A", "C", "G", "T", "N"]
+FLANK           = 150         # Bases either side of variant — wider context for splice site detection
 
 # ── Device configuration ──────────────────────────────────────────────────────
 import torch
