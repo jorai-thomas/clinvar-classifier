@@ -223,3 +223,4 @@ data/processed/
 outputs/predictions/
 wandb/
 NOTES.md
+outputs/*.pt
