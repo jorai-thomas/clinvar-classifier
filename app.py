@@ -46,12 +46,21 @@ CHROM_ACCESSIONS = {
 # ── Model loading ─────────────────────────────────────────────────────────────
 @st.cache_resource
 def load_model():
-    """Load CNN model — cached so it only loads once."""
-    model = VariantCNN()
+    """Load CNN model — downloads from HuggingFace Hub if not cached."""
+    from huggingface_hub import hf_hub_download
+    
     weights_path = Path("outputs/cnn_best.pt")
+    
+    # Download from HuggingFace if not available locally
     if not weights_path.exists():
-        st.error("Model weights not found. Ensure outputs/cnn_best.pt exists.")
-        st.stop()
+        weights_path.parent.mkdir(parents=True, exist_ok=True)
+        weights_path = hf_hub_download(
+            repo_id="jorait/clinvar-classifier",
+            filename="cnn_best.pt",
+            local_dir="outputs",
+        )
+
+    model = VariantCNN()
     model.load_state_dict(
         torch.load(weights_path, map_location=torch.device('cpu'))
     )

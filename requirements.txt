@@ -3,3 +3,4 @@ torch
 biopython
 numpy
 scikit-learn
+huggingface_hub
