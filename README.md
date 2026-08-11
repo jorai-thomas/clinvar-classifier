@@ -97,12 +97,47 @@ Extended: precision-recall curve (given class imbalance), SHAP explainability
 
 ---
 
-## Confounder audit
+## Confounder Audit
 
 A core output of this project is a documented audit of confounders present
-in the ClinVar dataset — gene-level enrichment, variant type distribution,
-review status bias, and ancestry representation. This audit directly motivates
-the adversarial deconfounding approach in the follow-on research.
+in the ClinVar dataset:
+- Gene-level concentration (BRCA1/2 alone = 3% of dataset)
+- Ancestry ascertainment bias (European-ancestry enrichment)
+- Class imbalance (4.6:1 Benign:Pathogenic in SNV subset)
+- Review status bias (4.3% retention after ⭐⭐+ filter)
+
+This audit directly motivates the adversarial deconfounding approach
+in the follow-on research.
+
+---
+
+## Clinical Context — ACMG/AMP Criteria
+
+The ACMG/AMP guidelines are the clinical standard for variant classification,
+used by geneticists worldwide to assign pathogenicity. This project's findings
+map directly onto two of the 28 criteria:
+
+**PM2 — Absent from population databases**
+A variant absent from or at very low frequency in population databases
+(gnomAD, ExAC) is considered moderate evidence of pathogenicity. ClinVar's
+European-ancestry skew means variants common in African or South Asian
+populations may appear rare in reference databases — triggering PM2
+incorrectly. A model trained on ClinVar inherits this miscalibration.
+
+**BS1 — Allele frequency too high for disease**
+A variant present at high frequency in population databases is considered
+strong evidence of benignity. Again, frequency estimates derived from
+predominantly European cohorts will be unreliable for other populations —
+a genuinely rare pathogenic variant in an underrepresented group may appear
+common in a European-skewed database, triggering BS1 incorrectly.
+
+The per-group AUC gap documented in this project (Enriched MLP: +0.22
+between well-studied and understudied genes) is a quantitative signature
+of exactly this failure mode — the model is less reliable for variants in
+genes whose population frequency landscape is poorly characterised.
+
+Integrating gnomAD population-stratified allele frequencies directly into
+the evaluation pipeline is the planned next step 
 
 ---
 
