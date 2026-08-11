@@ -1,5 +1,8 @@
 # ClinVar Pathogenic Variant Classifier
 
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Streamlit-FF4B4B?logo=streamlit)](https://clinvar-classifier-cfdyqhgeoh79yhepbrwafn.streamlit.app/)
+[![GitHub](https://img.shields.io/badge/GitHub-jorai--thomas-181717?logo=github)](https://github.com/jorai-thomas/clinvar-classifier)
+
 A binary classifier distinguishing pathogenic from benign genetic variants
 using the ClinVar dataset. Built as a technical foundation for adversarial
 deconfounding research on population-stratified genomic data.
