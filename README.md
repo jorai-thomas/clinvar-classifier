@@ -131,28 +131,30 @@ will be applied on top of a strong sequence representation.
 ---
 
 ## Repository Structure
+
+```
 clinvar-classifier/
 ├── data/
-│ ├── raw/ # Downloaded ClinVar files — git-ignored
-│ └── processed/ # Filtered and encoded data — git-ignored
+│   ├── raw/               # Downloaded ClinVar files — git-ignored
+│   └── processed/         # Filtered and encoded data — git-ignored
 ├── notebooks/
-│ ├── 01_eda.ipynb # Exploratory analysis and confounder audit
-│ ├── 02_preprocessing.ipynb # SNV filter, one-hot encoding, splits
-│ ├── 03_model.ipynb # Model training — MLP baseline, enriched MLP, CNN
-│ └── 04_evaluation.ipynb # Full evaluation suite
+│   ├── 01_eda.ipynb       # Exploratory analysis and confounder audit
+│   ├── 02_preprocessing.ipynb  # SNV filter, one-hot encoding, splits
+│   ├── 03_model.ipynb     # Model training — MLP baseline, enriched MLP, CNN
+│   └── 04_evaluation.ipynb    # Full evaluation suite
 ├── src/
-│ ├── data_utils.py # Loading, filtering, splitting
-│ ├── features.py # Encoding functions
-│ ├── model.py # PyTorch model definitions
-│ ├── train.py # Training loop with W&B integration
-│ └── evaluate.py # Metrics, plots, structured JSON outputs
+│   ├── data_utils.py      # Loading, filtering, splitting
+│   ├── features.py        # Encoding functions
+│   ├── model.py           # PyTorch model definitions
+│   ├── train.py           # Training loop with W&B integration
+│   └── evaluate.py        # Metrics, plots, structured JSON outputs
 ├── outputs/
-│ ├── figures/ # All evaluation plots
-│ └── predictions/ # Structured JSON model outputs
-├── app.py # Streamlit live demo
-├── config.py # All paths and hyperparameters
-└── CONVENTIONS.md # Naming and structure conventions
-
+│   ├── figures/           # All evaluation plots
+│   └── predictions/       # Structured JSON model outputs
+├── app.py                 # Streamlit live demo
+├── config.py              # All paths and hyperparameters
+└── CONVENTIONS.md         # Naming and structure conventions
+```
 ---
 
 ## Evaluation
